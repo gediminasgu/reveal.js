@@ -24,12 +24,30 @@
 			// If the query includes 'print-pdf' we'll use the PDF print sheet
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
-		<script src="js/jquery-1.8.2.min.js"></script>
-		<script src="js/highcharts.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<style>
+		.rocket {
+			background-image: url(cd/cd_rocket.jpg) !important;
+			background-size: auto 70%;
+		}
+		.rocket h2 {
+			margin-left: 70px;
+			margin-top: 10px;
+			color: #10A4E7;
+		}
+		.fail {
+			background-image: url(cd/fail.jpg) !important;
+			background-position: center !important;
+		}
+		.fail h2 {
+			text-align: center;
+			margin-top: 10px;
+			color: #10A4E7;
+		}
+		</style>
 	</head>
 	
 	<body>
@@ -42,207 +60,143 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Continuous Delivery</h1>
 				</section>
 				
 				<section>
 					<h2>About me</h2>
-					<p>
-						Gediminas Guoba
-					</p>
-					<p>
-						Software Architect ad Adform
-					</p>
-					<p>
-						<a href="mailto:gediminas.guoba@adform.com">gediminas.guoba@adform.com</a>
-					</p>
+					<ul>
+						<li>Gediminas Guoba</li>
+						<li>
+							<ul>
+								<li>Software Architect ad Adform</li>
+								<li><a href="mailto:gediminas.guoba@adform.com">gediminas.guoba@adform.com</a></li>
+							</ul>
+						</li>
+					</ul>
 
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Disclaimer</h2>
-					<p>
-						We’ve started to work on Continuous Delivery(CD) about 1.5 year ago and we want to share our experience with you!
-					</p>
+					<ul>
+						<li>
+							We’ve started to work on Continuous Delivery(CD) about 2 years ago and we want to share our experience with you!
+						</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
-				<section>
+				<section data-state="reality">
 					<h2>Reality</h2>
-					<p>
-						In 2 weeks sprint only 5 days*<br/>
-						are spent for actual development
-					</p>
-					<p>
-						<small>* for the new Agile team</small>
-					</p>
-<p>
-<div id="container"></div>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    
-    $(document).ready(function () {
-    	
-    	// Build the chart
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-		floating: true,
-                text: ''
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            tooltip: {
-        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-            	percentageDecimals: 1
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-			formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';},
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Dev process',
-                data: [
-                    ['Scrum rituals',       20.0],
-                    ['Development',       50.0],
-                    ['Manual testing',   15.0],
-                    ['Integration & Manual deployment',       15.0],
-                ]
-            }]
-        });
-    });
-    
-});
-</script>
-</p>
+					<ul>
+						<li>
+							In 2 weeks sprint only 5 days*<br/>
+							are spent for actual development
+						</li>
+						<li>
+							<div id="container" style="height: 350px;"></div>
+						</li>
+						<li>
+							<small>* for the new Agile team</small>
+						</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
-				<section>
+				<section data-state="challenge">
 					<h2>Challenge</h2>
-					<p>
-						How to increase number of<br/>
-						development days up-to 7?
-					</p>
-<p>
-<div id="container2"></div>
-<script type="text/javascript">
-$(function () {
-    var chart;
-    
-    $(document).ready(function () {
-    	
-    	// Build the chart
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container2',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-		floating: true,
-                text: ''
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            tooltip: {
-        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-            	percentageDecimals: 1
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-			formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';},
-                    },
-                    showInLegend: true
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Dev process',
-                data: [
-                    ['Scrum rituals',       20.0],
-                    ['Development',       70.0],
-                    ['Integration, Testing, Deployment',       10.0],
-                ]
-            }]
-        });
-    });
-    
-});
-</script>
-</p>
+					<ul>
+						<li>
+							How to increase number of<br/>
+							development days up-to 7?
+						</li>
+						<li>
+							<div id="container2" style="height: 350px;"></div>
+						</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Continuous Delivery to the rescue!</h2>
-					<p>
-						Continuous, successful and repeatable methodology to deploying code
+					<ul>
+						<li>
+							Continuous, successful and repeatable methodology to deploying code
+						</li>
+					</ul>
+					<p style="text-align: right; margin-top: 120px;">
+					<img src="cd/hose.png" />
 					</p>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Tasks for Continuous Delivery</h2>
-					<p align="left">
-						Source control<br/>
-						Continuous integration<br/>
-						Unit tests<br/>
-						Functional and UI tests<br/>
-						Auto release package preparation<br/>
-						Auto deployment<br/>
-						Deploy when feature is ready<br/>
-						Smoke tests<br/>
-						Monitoring<br/>
-					</p>
+					<ul>
+						<li>Source control</li>
+						<li>Continuous integration</li>
+						<li>Unit tests</li>
+						<li>Functional and UI tests</li>
+						<li>Auto release package preparation</li>
+						<li>Auto deployment</li>
+						<li>Deploy when feature is ready</li>
+						<li>Smoke tests</li>
+						<li>Monitoring</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
 					<h2>Our starting point</h2>
-					<p align="left">
-						<span style="color: #00CC00">Source control</span><br/>
-						<span style="color: #CCCC00">Continuous integration <small>(manual)</small></span><br/>
-						<span style="color: #CCCC00">Unit tests <small>(quite low coverage)</small></span><br/>
-						<span style="color: #CC0000">Functional and UI tests</span><br/>
-						<span style="color: #CCCC00">Auto release package preparation</span><br/>
-						<span style="color: #CCCC00">Auto deployment <small>(a lot of manual work)</small></span><br/>
-						<span style="color: #CC0000">Deploy when feature is ready <small>(deploying only on Thursdays)</small></span><br/>
-						<span style="color: #CC0000">Smoke tests</span><br/>
-						<span style="color: #CC0000">Monitoring</span><br/>
-					</p>
+					<ul>
+						<li style="color: #00CC00">Source control</li>
+						<li style="color: #CCCC00">Continuous integration <small>(manual)</small></li>
+						<li style="color: #CCCC00">Unit tests <small>(quite low coverage)</small></li>
+						<li style="color: #CC0000">Functional and UI tests</li>
+						<li style="color: #CCCC00">Auto release package preparation</li>
+						<li style="color: #CCCC00">Auto deployment <small>(a lot of manual work)</small></li>
+						<li style="color: #CC0000">Deploy when feature is ready <small>(deploying only on Thursdays)</small></li>
+						<li style="color: #CC0000">Smoke tests</li>
+						<li style="color: #CC0000">Monitoring</li>
+					</ul>
 					<aside class="notes">
 					</aside>
 				</section>
+				<section class="rocket">
+					<h2>We started to build CD...</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>After two months...</h2>
+					<ul>
+						<li>Custom configuration storage</li>
+						<li>Custom package storage</li>
+						<li>Automated package build and deployment</li>
+						<li>Automated UI testing and smoke testing</li>
+						<li>Automated server preparation</li>
+						<li>Implemented some monitoring</li>
+						<li>Became PowerShell gurus</li>
+						<li>We have automated VMM!</li>
+					</ul>
+				</section>
+				<section class="fail">
+					<h2>And we FAILED...</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Retrospective</h2>
+					<ul>
+						<li>Big changes needed</li>
+						<li>Practice was to hard to adopt</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
@@ -497,9 +451,10 @@ function linkify( selector ) {
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
+				rollingLinks: false,
 				
 				theme: Reveal.getQueryHash().theme || 'adform', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
@@ -512,9 +467,115 @@ function linkify( selector ) {
 					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
 					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'js/jquery-1.8.2.min.js'},
+					{ src: 'js/highcharts.js'},
 				]
 			});
-			
+
+Reveal.addEventListener('reality', function() {
+    var chart;
+    
+    $(document).ready(function () {
+    	
+    	// Build the chart
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+		floating: true,
+                text: ''
+            },
+            credits: {
+                enabled: false
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            	percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+			formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';},
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Dev process',
+                data: [
+                    ['Scrum rituals',       20.0],
+                    ['Development',       50.0],
+                    ['Manual testing',   15.0],
+                    ['Integration & Manual deployment',       15.0],
+                ]
+            }]
+        });
+    });
+    
+}, false );
+
+Reveal.addEventListener('challenge', function() {
+    var chart;
+    
+    $(document).ready(function () {
+    	
+    	// Build the chart
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container2',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+		floating: true,
+                text: ''
+            },
+            credits: {
+                enabled: false
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+            	percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+			formatter: function() {return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';},
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Dev process',
+                data: [
+                    ['Scrum rituals',       20.0],
+                    ['Development',       70.0],
+                    ['Integration, Testing, Deployment',       10.0],
+                ]
+            }]
+        });
+    });
+}, false );
+
 		</script>
 
 	</body>
